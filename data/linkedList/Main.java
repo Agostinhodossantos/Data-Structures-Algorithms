@@ -30,5 +30,13 @@ public class Main {
        while(itr.hasNext()) {
         System.out.println(itr.next());
        }
+
+       // Reverse a list of elements
+       System.out.println("----------------------");
+       
+       Iterator i = al.descendingIterator();
+       while(i.hasNext()) {
+           System.out.println(i.next());
+       }
     }
 }
