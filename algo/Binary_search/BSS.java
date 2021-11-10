@@ -8,6 +8,7 @@ class BSS {
         int l = 0, r = arr.length - 1;
         while (l <= r) {
             int m = l + (r - l) / 2;
+            System.out.println("m = "+m+" r = "+r);
  
             int res = x.compareTo(arr[m]);
  
