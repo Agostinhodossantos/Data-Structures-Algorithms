@@ -22,6 +22,10 @@ public class Dublicate{
         return false;
     }
 
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        for(int i = 0; i < ll.length)
+    }
+
     public static boolean containsDuplicate(long[] nums) {
         Arrays.sort(nums);
 
