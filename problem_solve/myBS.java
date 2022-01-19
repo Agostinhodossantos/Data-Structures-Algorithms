@@ -7,9 +7,58 @@ public class myBS {
         int result =  new myBS().binary_search(list, target);
         int arr1[] =  {5, 6, 1, 2, 3, 4};
         int n1 = arr1.length;
-        System.out.println("The minimum element is "+ new myBS().findMin(arr1, 0, n1-1));
+        System.out.println(findPosition(arr1, 10));
  
     }
+
+
+    /*
+    Given a sorted array arr[] consisting of N distinct integers and an integer K, 
+    the task is to find the index of K, if it’s present in the array arr[]. 
+    Otherwise, find the index where K must be inserted to keep the array sorted.
+    */
+
+
+    public static int findPosition(int arr[], int target) {
+        int low = 0;
+        int high = arr.length - 1;
+
+        while(low <= high) {
+            int midpoint = (low + high) / 2;
+
+            if (target == arr[midpoint]) {
+                return midpoint;
+            } else if(arr[midpoint] < target) {
+                low = midpoint + 1;
+            } else {
+                low = midpoint - 1;
+            }
+        }
+        return low + 1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -17,7 +66,6 @@ public class myBS {
     Given the sorted rotated array nums of unique elements, 
     return the minimum element of this array in O(log n) time
     */
-
 
     public int findMin(int arr[], int low, int high) {
         
@@ -33,24 +81,22 @@ public class myBS {
         if (arr[high] > arr[mid])
             return findMin(arr, low, mid-1);
         return findMin(arr, mid+1, high);
-
-
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Duplicated elements
+    public int findMainD(int arr[], int low, int high) {
+        while(low < high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] == arr[high])
+                high--;
+            else if(arr[mid] > arr[high])
+                low = mid + 1;
+            else 
+                high = mid;
+        }
+        return arr[high];
+    }
+    
 
 
     /*
