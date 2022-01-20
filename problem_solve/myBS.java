@@ -1,23 +1,41 @@
 public class myBS {
     public static void main(String[] args) {
-
-        int [] list = {1, 2, 3,4,5};
-        int target = 5;
-
-        int result =  new myBS().binary_search(list, target);
-        int arr1[] =  {5, 6, 1, 2, 3, 4};
-        int n1 = arr1.length;
-        System.out.println(findPosition(arr1, 10));
- 
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int n = arr.length;
+        int x = 8;
+        int result = celing(arr, 0, n - 1, x);
+        System.out.println(result);
     }
 
+    static int celing(int arr[], int x)
+    {
+        int l = 0, r = arr.length - 1;
+        while (l <= r) {
+            int m = l + (r - l) / 2;
+ 
+            
+            // If x greater, ignore left half
+            if (arr[m] < x)
+                l = m + 1;
+ 
+            // If x is smaller, ignore right half
+            else
+                r = m - 1;
+             // Check if x is present at mid
+            if (arr[m] == x)
+                return m;
+        }
+ 
+        // if we reach here, then element was
+        // not present
+        return l;
+    }
 
     /*
     Given a sorted array arr[] consisting of N distinct integers and an integer K, 
     the task is to find the index of K, if it’s present in the array arr[]. 
     Otherwise, find the index where K must be inserted to keep the array sorted.
     */
-
 
     public static int findPosition(int arr[], int target) {
         int low = 0;
@@ -31,36 +49,11 @@ public class myBS {
             } else if(arr[midpoint] < target) {
                 low = midpoint + 1;
             } else {
-                low = midpoint - 1;
+                high = midpoint - 1;
             }
         }
         return low + 1;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
     Given the sorted rotated array nums of unique elements, 
@@ -116,7 +109,7 @@ public class myBS {
             } else if (list[midpoint] < target) {
                 first = midpoint + 1;
             } else {
-                first = midpoint - 1;
+                last = midpoint - 1;
             }
         }
         return -1;
