@@ -12,6 +12,11 @@ public class myBS {
     }
 
 
+    int sqrt(int x) {
+        
+    }
+
+
     /*
     Given a sorted array arr[] consisting of N distinct integers and an integer K, 
     the task is to find the index of K, if it’s present in the array arr[]. 
@@ -36,31 +41,6 @@ public class myBS {
         }
         return low + 1;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
     Given the sorted rotated array nums of unique elements, 
